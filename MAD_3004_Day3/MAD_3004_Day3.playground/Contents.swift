@@ -259,3 +259,22 @@ var a2 = [10,11,12,13,14]
 var a3 = [display(arrayList: a1, a2)]
 print(a1)
 print(a3)
+
+//function with an optional tuple return type and return a value of nil when the array is empty:
+func minMax(array: [Int]) -> (min: Int, max: Int)? {
+    if array.isEmpty { return nil }
+    var currentMin = array[0]
+    var currentMax = array[0]
+    for value in array[1..<array.count] {
+        if value < currentMin {
+            currentMin = value
+        } else if value > currentMax {
+            currentMax = value
+        }
+    }
+    return (currentMin, currentMax)
+}
+ 
+var array1 = [1,5,9,10,6,54,50]
+var result = minMax(array: array1)
+print(result)
